@@ -1,6 +1,6 @@
 # Soure Data Files
-.csv
-.sas7bdat
+*.csv
+*.sas7bdat
 
 # History files
 .Rhistory
