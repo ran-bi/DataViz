@@ -33,7 +33,7 @@ count(acc, RUR_URB)
 #NA Values: Because RUR_URB variable is missing from acc2014. 
 #The number of NA equals to the number of observations in acc2014.
 
-#Mergingo n another data source
+#Merging on another data source
 fips <- read_csv("fips.csv")
 glimpse(fips)
 acc$STATE <- as.character(acc$STATE)
@@ -41,4 +41,22 @@ acc$COUNTY <- as.character(acc$COUNTY)
 acc$STATE <- str_pad(acc$STATE, 2, "left", "0")
 acc$COUNTY <- str_pad(acc$COUNTY, 3, "left", "0")
 acc <- plyr::rename(acc, c("STATE" = "StateFIPSCode", "COUNTY" = "CountyFIPSCode"))
-acc %>% left_join(fips)
+acc <- acc %>% left_join(fips)
+
+#Exploratory data analysis in R's dplyr and tidyr package
+agg <- acc %>% group_by(StateName, YEAR)  %>% summarise(TOTAL = sum(FATALS))
+agg_wide <- spread(agg, YEAR, TOTAL) %>% setNames( c("StateName", "Year2014", "Year2015") )
+agg_diff <- mutate(agg_wide, Diff_Percent = Year2015/Year2014 - 1)
+agg_arranged <- arrange(agg_diff, desc(Diff_Percent))
+agg_filtered <- filter(agg_arranged, Diff_Percent > 0.15, !is.na(StateName))
+
+#Rewrite using chain operator
+agg <- acc %>%
+  group_by(StateName, YEAR) %>%
+  summarise(TOTAL = sum(FATALS)) %>%
+  spread(YEAR, TOTAL) %>%
+  setNames(c("StateName", "Year2014", "Year2015")) %>%
+  mutate(Diff_Percent = Year2015/Year2014 - 1) %>%
+  arrange(desc(Diff_Percent)) %>%
+  filter(Diff_Percent > 0.15, !is.na(StateName))
+glimpse(agg)
