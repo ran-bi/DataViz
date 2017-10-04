@@ -50,7 +50,7 @@ agg_diff <- mutate(agg_wide, Diff_Percent = Year2015/Year2014 - 1)
 agg_arranged <- arrange(agg_diff, desc(Diff_Percent))
 agg_filtered <- filter(agg_arranged, Diff_Percent > 0.15, !is.na(StateName))
 
-#Rewrite using chain operator
+#Rewrite using the chain operator
 agg <- acc %>%
   group_by(StateName, YEAR) %>%
   summarise(TOTAL = sum(FATALS)) %>%
