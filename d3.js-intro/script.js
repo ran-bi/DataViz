@@ -14,3 +14,12 @@ var svg = d3.select("#chart")
 // Create and place start of SVG g tag, where bar chart will appear
 var g = svg.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")"); 
+
+// Read in data and handle error
+d3.json("sample.json",function(error, data) {
+	if (error) {
+    console.log(error);
+  } else {
+    console.log(data);
+  };
+})
