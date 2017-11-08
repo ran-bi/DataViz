@@ -1,5 +1,5 @@
 // Set Spacing Guidelines
-var margin = {top: 125, right: 75, bottom: 100, left: 100} 
+var margin = {top: 125, right: 75, bottom: 100, left: 75} 
 var width = 800 - margin.left - margin.right;
 var height = 800 - margin.top - margin.bottom;
 var barPadding = 20;
@@ -68,5 +68,38 @@ function makeBarchart(data = data){
 	svg.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 		.call(d3.axisLeft(yScale));
+
+	// Text label for the x axis
+	svg.append("text")             
+		.attr("transform", "translate(" + (width/2 + margin.left) + " ," + (margin.top *3/4) + ")")
+		.style("text-anchor", "middle")
+		.text("Community")
+		.attr("class", "label");
+
+	// Text label for the y axis
+	svg.append("text")
+		.attr("transform", "rotate(-90)")
+		.attr("y", margin.left/2)
+		.attr("x",0 - (height + margin.top)/2)
+		.style("text-anchor", "middle")
+		.text("Requests / 10,000 population")
+		.attr("class", "axisLabel");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
