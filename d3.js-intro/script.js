@@ -20,6 +20,19 @@ d3.json("sample.json",function(error, data) {
 	if (error) {
     console.log(error);
   } else {
-    console.log(data);
+    makeBarchart(data);
   };
 })
+
+
+function makeBarchart(data = data){
+
+	// Sort data
+	var sorted_data = data.sort(function(x, y){
+		return d3.descending(x.requests_per_10000, y.requests_per_10000)});
+
+
+
+
+
+}
