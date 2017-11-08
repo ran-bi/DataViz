@@ -59,6 +59,14 @@ function makeBarchart(data = data){
 			return col;
 			})
 
+	// Add the x axis
+	svg.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		.call(d3.axisTop(xScale))
 
+	// Add the y axis
+	svg.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		.call(d3.axisLeft(yScale));
 
 }
