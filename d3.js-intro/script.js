@@ -100,8 +100,21 @@ function makeBarchart(data = data){
 		.text("Hispanic communities show higher requests volume")
 		.attr("class", "subTitle");
 
+	// Add legends
 
+	svg.append("rect")
+		.attr("x", margin.left + width * 3 / 4)
+		.attr("y", margin.top + height * 5 / 6 )
+		.attr("width", 30)
+		.attr("height", 30)
+		.style("fill", colors[0]);
 
+	svg.append("rect")
+		.attr("x", margin.left + width * 3 / 4)
+		.attr("y", margin.top + height * 5 / 6 + 40)
+		.attr("width", 30)
+		.attr("height", 30)
+		.style("fill", colors[1]); 
 
 
 
