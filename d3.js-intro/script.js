@@ -74,7 +74,7 @@ function makeBarchart(data = data){
 		.attr("transform", "translate(" + (width/2 + margin.left) + " ," + (margin.top *3/4) + ")")
 		.style("text-anchor", "middle")
 		.text("Community")
-		.attr("class", "label");
+		.attr("class", "axisLabel");
 
 	// Text label for the y axis
 	svg.append("text")
@@ -85,13 +85,20 @@ function makeBarchart(data = data){
 		.text("Requests / 10,000 population")
 		.attr("class", "axisLabel");
 
+	// Add graph title
+	svg.append("text")
+		.attr("transform", "translate(" + (width/2 + margin.left) + "," + margin.top/4 + ")")
+		.style("text-anchor", "middle")
+		.text("Number of Graffiti Removal Requests in Selected Communities")
+		.attr("class", "title");
 
 
-
-
-
-
-
+	// Add subtitle
+	svg.append("text")
+		.attr("transform", "translate(" + (width/2 + margin.left) + "," + margin.top/2 + ")")
+		.style("text-anchor", "middle")
+		.text("Hispanic communities show higher requests volume")
+		.attr("class", "subTitle");
 
 
 
