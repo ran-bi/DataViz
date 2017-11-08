@@ -42,7 +42,22 @@ function makeBarchart(data = data){
 		.range([0,height])
 		.nice();
 
-
+	// Create rects as individual negative bar
+	var bars = g.selectAll(".bars")
+		.data(sorted_data)
+		.enter()
+		.append("rect")
+		.attr("class", "bars")
+		.attr("x", function(d, i){ return i * (width / sorted_data.length) + barPadding/2;}) 
+		.attr("y", 0)
+		.attr("width",  width / sorted_data.length - barPadding)
+		.attr("height", function(d){return yScale(d.requests_per_10000);})
+		.style("fill", function(d){
+			var col;
+			if (d.majority == "Hispanic") { col = colors[0];}
+			else {col = colors[1];}
+			return col;
+			})
 
 
 
