@@ -31,6 +31,17 @@ function makeBarchart(data = data){
 	var sorted_data = data.sort(function(x, y){
 		return d3.descending(x.requests_per_10000, y.requests_per_10000)});
 
+	// Setup x scale
+	var xScale = d3.scaleBand()
+		.domain(sorted_data.map(function (d) {return d.community;}))
+		.range([0, width]);
+
+	// Setup y scale
+	var yScale = d3.scaleLinear()
+		.domain(d3.extent(sorted_data, function(d) { return d.requests_per_10000;}))
+		.range([0,height])
+		.nice();
+
 
 
 
