@@ -11,6 +11,7 @@ library(stringr)
 library(ggplot2)
 
 #Load the FARS data
+#Better change file name: accident_2014, accident_2015
 acc2014 <- read_sas("accident.sas7bdat")
 acc2015 <- read_csv("accident.csv")
 
@@ -40,8 +41,12 @@ acc$STATE <- as.character(acc$STATE)
 acc$COUNTY <- as.character(acc$COUNTY)
 acc$STATE <- str_pad(acc$STATE, 2, "left", "0")
 acc$COUNTY <- str_pad(acc$COUNTY, 3, "left", "0")
+##Can mutate multiple columns in one time
 acc <- plyr::rename(acc, c("STATE" = "StateFIPSCode", "COUNTY" = "CountyFIPSCode"))
-acc <- acc %>% left_join(fips)
+acc <- acc %>% left_join(fips) 
+#Works if by columns exist in both sides. You need to check first. what if there
+#is some more unexpected column names? Convention of coding is to make code more readable.
+
 
 #Exploratory data analysis in R's dplyr and tidyr package
 agg <- acc %>% group_by(StateName, YEAR)  %>% summarise(TOTAL = sum(FATALS))
