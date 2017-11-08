@@ -1,0 +1,62 @@
+[
+  {
+    "community": "Belmont Cragin",
+    "requests_per_10000": 483.4715467,
+    "majority": "Hispanic",
+    "income": 42842
+  },
+  {
+    "community": "Logan Square",
+    "requests_per_10000": 1082.688794,
+    "majority": "Hispanic",
+    "income": 49610
+  },
+  {
+    "community": "West Town",
+    "requests_per_10000": 1112.529792,
+    "majority": "Non-Hispanic",
+    "income": 60720
+  },
+  {
+    "community": "Austin",
+    "requests_per_10000": 76.33432812,
+    "majority": "Non-Hispanic",
+    "income": 32358
+  },
+  {
+    "community": "West Garfield Park",
+    "requests_per_10000": 96.66129659,
+    "majority": "Non-Hispanic",
+    "income": 23033
+  },
+  {
+    "community": "East Garfield Park",
+    "requests_per_10000": 117.1780036,
+    "majority": "Non-Hispanic",
+    "income": 24488
+  },
+  {
+    "community": "Near West Side",
+    "requests_per_10000": 455.895483,
+    "majority": "Non-Hispanic",
+    "income": 62770
+  },
+  {
+    "community": "North Lawndale",
+    "requests_per_10000": 133.6600579,
+    "majority": "Non-Hispanic",
+    "income": 25797
+  },
+  {
+    "community": "South Lawndale",
+    "requests_per_10000": 583.316517,
+    "majority": "Hispanic",
+    "income": 33593
+  },
+  {
+    "community": "Lower West Side",
+    "requests_per_10000": 1365.707736,
+    "majority": "Hispanic",
+    "income": 34573
+  }
+]

@@ -13,4 +13,4 @@ var svg = d3.select("#chart")
 
 // Create and place start of SVG g tag, where bar chart will appear
 var g = svg.append("g")
-.attr("transform", "translate(" + margin.left + "," + margin.top + ")"); 
+	.attr("transform", "translate(" + margin.left + "," + margin.top + ")"); 
