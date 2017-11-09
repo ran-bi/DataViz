@@ -63,6 +63,8 @@ function makeBarchart(data = data){
 	svg.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 		.call(d3.axisTop(xScale))
+		.selectAll(".tick text")
+		.call(wrap, xScale.bandwidth());
 
 	// Add the y axis
 	svg.append("g")
@@ -87,16 +89,14 @@ function makeBarchart(data = data){
 
 	// Add graph title
 	svg.append("text")
-		.attr("transform", "translate(" + (width/2 + margin.left) + "," + margin.top/4 + ")")
-		.style("text-anchor", "middle")
+		.attr("transform", "translate(" +  margin.left + "," + margin.top/4 + ")")
 		.text("Number of Graffiti Removal Requests in Selected Communities")
 		.attr("class", "title");
 
 
 	// Add subtitle
 	svg.append("text")
-		.attr("transform", "translate(" + (width/2 + margin.left) + "," + margin.top/2 + ")")
-		.style("text-anchor", "middle")
+		.attr("transform", "translate(" + margin.left + "," + margin.top/2 + ")")
 		.text("Hispanic communities show higher requests volume")
 		.attr("class", "subTitle");
 
@@ -125,10 +125,46 @@ function makeBarchart(data = data){
 		.attr("transform", "translate(" + (margin.left + width * 3 / 4 + 40) + "," + (margin.top + height * 5 / 6 + 60) + ")" )
 		.text("Non-Hispanic")
 		.attr("class", "legendText");  
+};
+
+// Wrap text on x axis ticks
+function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr("y") - 10,
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      }
+    }
+  });
+};
 
 
 
 
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
