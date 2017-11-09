@@ -1,3 +1,21 @@
+svg {
+  background-color: #F5F3F2;
+}
 
+text {
+	font-family: Prociono;
+}
+text.title {
+	font-size: 18pt;
+	font-family:Prociono;
+	font-weight: bold;
+}
+
+
+text.subTitle,
+text.legendText {
+	font-size: 12pt;
+	font-family: Prociono;
+}
 
 

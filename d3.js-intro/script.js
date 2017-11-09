@@ -90,7 +90,7 @@ function makeBarchart(data = data){
 	// Add graph title
 	svg.append("text")
 		.attr("transform", "translate(" +  margin.left + "," + margin.top/4 + ")")
-		.text("Number of Graffiti Removal Requests in Selected Communities")
+		.text("Graffiti Removal Requests Volume in Selected Chicago Communities")
 		.attr("class", "title");
 
 
