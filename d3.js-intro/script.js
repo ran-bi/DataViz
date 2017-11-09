@@ -101,7 +101,6 @@ function makeBarchart(data = data){
 		.attr("class", "subTitle");
 
 	// Add legends
-
 	svg.append("rect")
 		.attr("x", margin.left + width * 3 / 4)
 		.attr("y", margin.top + height * 5 / 6 )
@@ -116,6 +115,16 @@ function makeBarchart(data = data){
 		.attr("height", 30)
 		.style("fill", colors[1]); 
 
+	// Add legends text
+	svg.append("text")
+		.attr("transform", "translate(" + (margin.left + width * 3 / 4 + 40) + "," + (margin.top + height * 5 / 6 + 20) + ")" )
+		.text("Hispanic")
+		.attr("class", "legendText");   
+
+	svg.append("text")
+		.attr("transform", "translate(" + (margin.left + width * 3 / 4 + 40) + "," + (margin.top + height * 5 / 6 + 60) + ")" )
+		.text("Non-Hispanic")
+		.attr("class", "legendText");  
 
 
 
