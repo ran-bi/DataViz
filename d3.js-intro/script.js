@@ -127,7 +127,7 @@ function makeBarchart(data = data){
 		.attr("class", "legendText");  
 };
 
-// Wrap text on x axis ticks
+// Wrap text on x axis ticks. Source: https://bl.ocks.org/mbostock/7555321
 function wrap(text, width) {
   text.each(function() {
     var text = d3.select(this),
