@@ -5,17 +5,22 @@ svg {
 text {
 	font-family: Prociono;
 }
+
 text.title {
 	font-size: 18pt;
-	font-family:Prociono;
 	font-weight: bold;
 }
-
 
 text.subTitle,
 text.legendText {
 	font-size: 12pt;
-	font-family: Prociono;
 }
 
 
+rect.hispanic {
+	fill: #FDBF11;
+}
+
+rect.nonHispanic {
+	fill: #55A7ED;
+}

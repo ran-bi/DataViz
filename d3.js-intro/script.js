@@ -52,12 +52,10 @@ function makeBarchart(data = data){
 		.attr("y", 0)
 		.attr("width",  width / sorted_data.length - barPadding)
 		.attr("height", function(d){return yScale(d.requests_per_10000);})
-		.style("fill", function(d){
-			var col;
-			if (d.majority == "Hispanic") { col = colors[0];}
-			else {col = colors[1];}
-			return col;
-			})
+		.attr("class", function(d){
+			if (d.majority == "Hispanic") {return "hispanic";}
+			else {return "nonHispanic";}
+		})
 
 	// Add the x axis
 	svg.append("g")
